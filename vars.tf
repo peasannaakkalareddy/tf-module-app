@@ -14,4 +14,5 @@ variable "listener_arn" {}
 variable "listener_priority" {}
 variable "domain_name" {}
 variable "lb_dns_name" {}
-#variable "dns_name" {}
+variable "dns_name" {}
+variable "domain_id" {}
