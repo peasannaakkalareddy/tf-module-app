@@ -5,8 +5,8 @@ resource "aws_security_group" "sg" {
 
   ingress {
     description = "APP"
-    from_port   = 8080
-    to_port     = 8080
+    from_port   = var.app_port
+    to_port     = var.app_port
     protocol    = "tcp"
     cidr_blocks = var.allow_app_cidr
   }
@@ -45,7 +45,6 @@ resource "aws_launch_template" "template" {
     name = var.name
     env  = var.env
   }))
-
 }
 
 resource "aws_autoscaling_group" "asg" {
@@ -70,6 +69,7 @@ resource "aws_autoscaling_group" "asg" {
       value               = tag.value
     }
   }
+
 }
 
 resource "aws_lb_target_group" "main" {
