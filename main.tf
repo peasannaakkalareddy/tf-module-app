@@ -45,6 +45,7 @@ resource "aws_launch_template" "template" {
     name = var.name
     env  = var.env
   }))
+
 }
 
 resource "aws_autoscaling_group" "asg" {
